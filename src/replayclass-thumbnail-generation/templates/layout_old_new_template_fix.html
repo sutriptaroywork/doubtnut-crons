@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <style>
+      * {font-family: 'Khand', sans-serif;}
+      html, body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+      }
+      .main-div {
+        height: 377px;
+        width: 670px;
+        background-repeat: repeat;
+        background-position: center;
+        background-size: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        position: relative;
+      }
+      #class-text {
+        width: 24%;
+        height: 54px;
+        color: #2f0e45;
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 46px;
+        font-weight: bold;
+      }
+      #chapterText {
+        width: 400px;
+        height: 226px;
+        margin: 21px 0px 0px 24px;
+        font-family: 'Khand', sans-serif;
+        font-size: 1px;
+        font-weight: bold;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        text-align: left;
+        overflow: hidden;
+      }
+      .faculty-image-div {
+        height: 311px;
+        width: 257px;
+        position: absolute;
+        z-index: 2;
+        top: 14px;
+        right: 0px;
+        overflow: hidden;
+      }
+      .faculty-image {
+        height: 100%;
+      }
+      #subject{
+        display: none;
+      }
+      #facultyText {
+        height: 50px;
+        width: 276px;
+        color: #2f0e45;
+        position: absolute;
+        z-index: 3;
+        bottom: 0px;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1px;
+        font-weight: bold;
+        white-space: nowrap;
+        /* overflow: hidden;
+        text-overflow: ellipsis; */
+      }
+    </style>
+
+  </head>
+
+  <body id="root">
+    <div class="main-div">
+
+      <div id="class-text">Class&nbsp;###CLASS###</div>
+
+      <div id="chapterText">
+        <div>###TOPIC###</div>
+      </div>
+
+      <div class="faculty-image-div">
+        <img class="faculty-image" src="###FACIMAGE###" />
+      </div>
+
+      <div id="facultyText">
+        <div>###FACNAME###</div>
+      </div>
+
+    </div>
+  </body>
+
+  <script>
+    $(document).ready(function() {
+      while ($('div#chapterText div').height() <= $('div#chapterText').height() && parseInt($('div#chapterText div').css('font-size'), 10) < 50) {
+        var fontSize = parseInt($('div#chapterText div').css('font-size'), 10)
+        $('div#chapterText div').css('fontSize', fontSize + 1);
+        $('div#chapterText div').css('lineHeight', (fontSize + (fontSize / 8)).toString() + 'px');
+      }
+
+      while ($('div#facultyText div').width() <= $('div#facultyText').width() && parseInt($('div#facultyText div').css('font-size'), 10) < 36) {
+        var fontSize2 = parseInt($('div#facultyText div').css('font-size'), 10)
+        $('div#facultyText div').css('fontSize', fontSize2 + 1);
+      }
+
+      let subject = "###SUB_LOWER###"
+      let locale="###LOCALE_LOWER###"
+            let url=`https://d10lpgp6xz60nq.cloudfront.net/images/20210513_${locale}_${subject}.png`
+      $('.main-div').css("background-image", `url(${url})`);  
+
+      let mainColor = '';
+      let classColor= '';
+
+      switch (subject) {
+        case 'physics':
+          mainColor = "#025E37";
+          classColor = "#025E37";
+          break;
+        case 'maths':
+          mainColor = "#3E1857";
+          classColor = "#3E1857";
+          break;
+        case 'chemistry':
+          mainColor = "#0A2489";
+          classColor = "#0A2489";
+          break;
+        case 'biology':
+          mainColor = "#5A0100";
+          classColor = "#5A0100";
+          break;
+        case 'science':
+          mainColor = "#A30E06";
+          classColor = "#A30E06";
+          break;
+        case 'english':
+          mainColor = "#420536";
+          classColor = "#420536";
+          break;
+         case 'english_grammar':
+          mainColor = "#410A35";
+          classColor= "#ffff01";
+          break;
+        case 'social_science':
+          mainColor = "#9B3816";
+          classColor = "#9B3816";
+          break;
+         case 'guidance':
+          mainColor = "#124b99";
+          classColor= "#F7EC13";
+          break;
+          default:
+          mainColor = "#ffffff";
+          classColor= "#ffffff";
+          
+      }
+
+      $('div#class-text').css('color', classColor);
+      $('div#facultyText div').css('color', mainColor);
+    });
+  </script>
+
+</html>

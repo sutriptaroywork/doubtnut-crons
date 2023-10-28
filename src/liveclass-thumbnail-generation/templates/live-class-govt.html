@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+    <title>Live Class Thumbnail</title>
+    <style>
+        .board{
+            width: 970px;
+            height: 465px;
+            background-image: url('data:image/png;base64,##live-class-bk##') #000000;
+            background-color: #000000;
+            background-size: 100% 100%;
+            font-family: Arial;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .main-top {
+            color: #efe90f; 
+            font-size: 70px;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            padding-left: 15px;
+            padding-top: 10px;
+        }
+
+        .white {
+            padding-top: 0;
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        .comment-box {
+            height: 130px;
+            width: 900px;
+            display: flex;
+            align-items: center;
+            background: url('data:image/png;base64,##live-class-comment-bk-2##');
+            background-size: 100% 100%;
+        }
+
+        .chapter-name {
+            color: #000000;
+            width: 600px;
+            font-size: 50px;
+            padding-left: 15px;
+            font-weight: bold;
+        }
+
+        .teacher-name {
+            font-size: 40px;
+            padding-top: 0;
+            padding-bottom: 20px;
+        }
+
+        .play-btn {
+            width: 200px;
+            padding-left: 15px;
+        }
+
+        .watch-now-btn {
+            width: 200px;
+            padding-left: 35px;
+        }
+
+        .teacher-img {
+            position: fixed;
+            width: 330px;
+            height: 315px;
+            top: 150px;
+            left: 600px;
+        }
+
+        #top-head {
+            width: 700px;
+        }
+    
+        /* div.b {
+        word-wrap: break-word;
+        text-align: center;
+        } */
+    
+    </style>
+    <script>
+        window.onload = function() {
+            const topHeadLength = document.getElementById('top-head').innerHTML.length;
+            if(topHeadLength > 15) {
+                document.getElementById('top-head').style.fontSize = '50px';
+            }
+            if(topHeadLength > 20) {
+                document.getElementById('top-head').style.fontSize = '40px';
+            }
+            const chapNameLength = document.getElementById('chap-name').innerHTML.length;
+            if(chapNameLength > 25) {
+                document.getElementById('chap-name').style.fontSize = '40px';
+            }
+            if(chapNameLength > 55) {
+                document.getElementById('chap-name').style.fontSize = '30px';
+            }
+        }
+    </script>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <div class="board">
+        <p class="main-top" id="top-head">#top#</p>
+        <p class="main-top white">#time# | #subject#</p>
+        <p class="comment-box">
+            <span class="chapter-name" id="chap-name">#chapter#</span>
+        </p>
+        <p class="main-top teacher-name">#expert#</p>
+        <img class="play-btn" src="data:image/png;base64,##live-class-play-btn-2##" alt="play-btn" />
+        <img class="watch-now-btn" src="data:image/png;base64,##live-class-watch-now-2##" alt="watch-now-btn" />
+        <img class="teacher-img" src="#image#" alt="teacher-img" />
+    </div>
+</body>
+</html>
